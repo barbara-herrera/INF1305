@@ -85,7 +85,8 @@ contract EasyStorage {
   // Aluguel de uma storage
   function rentStorage(address payable _storage_owner, uint _storage_units, uint _initial_date, uint _final_date) public payable {
     require(storage_owners_list[_storage_owner] != 0, "Esta Storage não existe ou o armazém nãp possui mais espaços para alugar!");
-    require(contract_price_to_rent_unit_storage == msg.value, "Valor de compra da unidade de storage inválido");
+    require(contract_price_to_rent_unit_storage == msg.value, "Valor para criar um contrato de aluguel de storage errado!");
+    
     uint tam = storage_list.length;
     storage_list[tam].storage_owner_address = _storage_owner;
     storage_list[tam].storage_units = _storage_units;
