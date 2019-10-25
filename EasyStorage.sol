@@ -82,7 +82,7 @@ contract EasyStorage {
 	  contract_owner_address.transfer(msg.value);
   }
 
-  // Aluguel de uma storage
+  // Contrato de aluguel de um espaço em armazém
   function rentStorage(address payable _storage_owner, uint _storage_units, uint _initial_date, uint _final_date) public payable {
     require(storage_owners_list[_storage_owner] != 0, "Esta Storage não existe ou o armazém nãp possui mais espaços para alugar!");
     require(contract_price_to_rent_unit_storage == msg.value, "Valor para criar um contrato de aluguel de storage errado!");
