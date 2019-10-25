@@ -7,7 +7,7 @@
 
 ## Contribuição
 
-- **[@eduardomaksoud](https://github.com/eduardomaksoud)**
+- **[@danielamaksoud](https://github.com/danielamaksoud)**
 
 ## Professores
 
