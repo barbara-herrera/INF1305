@@ -16,6 +16,7 @@ contract EasyStorage {
     address payable storage_owner_address;
     address payable storage_tenant_adrress;
     uint storage_units; // unit é a menor medida de armazenamento
+    uint price_to_pay;
     uint initial_date; 
     uint final_date;	  
   }
@@ -83,13 +84,15 @@ contract EasyStorage {
   }
 
   // Contrato de aluguel de um espaço em armazém
-  function rentStorage(address payable _storage_owner, uint _storage_units, uint _initial_date, uint _final_date) public payable {
+  function rentStorage(address payable _storage_owner, uint _storage_units, 
+                        uint _initial_date, uint _final_date) public payable {
     require(storage_owners_list[_storage_owner] != 0, "Esta Storage não existe ou o armazém nãp possui mais espaços para alugar!");
-    require(contract_price_to_rent_unit_storage == msg.value, "Valor para criar um contrato de aluguel de storage errado!");
+    require(contract_price_to_rent_unit_storage * _storage_units == msg.value, "Valor para criar um contrato de aluguel de storage errado!");
     
     uint tam = storage_list.length;
     storage_list[tam].storage_owner_address = _storage_owner;
     storage_list[tam].storage_units = _storage_units;
+    storage_list[tam].price_to_pay = _storage_units * contract_price_to_rent_unit_storage;
     
     storage_list[tam].storage_owner_address.transfer(msg.value);
 
