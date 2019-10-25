@@ -72,7 +72,7 @@ contract EasyStorage {
   }
 
 
-  // Adiciona um dono de storage
+  // Adiciona um dono de storage no contrato
   function addStorageOwner(uint256 storage_hash) public payable {
       require(storage_list[storage_hash].storage_owner_address == address(0), "Storage já possui dono");
       require(msg.value == contract_price_to_add_storage_owner, "Preço para adicionar um novo armazem incorreto");
